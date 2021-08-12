@@ -100,6 +100,55 @@ public class Rough {
 //            int a = 100;  // a is already define in scope (error)
 //        }
 //
+//        int j = 60;
+//        System.out.println("ans " + j + 1); // ans 601
+//        System.out.println("ans " + (j+1)); // ans 61
+//
+         // Increment and decrement operator
+//        int a=10,b=20;
+//        System.out.println(a+++--b);//line 1
+//        System.out.println(a--+(++b));//line 2
+//        System.out.println(a++-++b);//line 3
+//        System.out.println(a+++(++b));//line 4
 
+        // Bitwise Operator
+
+//        int a=10,b=20;
+//        int c=a&b;
+//        System.out.print(c);
+//        int d=a|b;
+//        System.out.print(d);
+//        int e=a^b;
+//        System.out.print(e);
+//        int f=c+d+e;
+//        System.out.print(~f);
+
+//        int a=10,b=-20;
+//        System.out.print(a^b);
+
+//        int a = 42;
+//        int b = ~a; //(there is tilde sign before a)
+//        System.out.print(a + " " + b);
+
+//        int x = 15;
+//        int y = x++;
+//        int  z = ++x;
+//        System.out.println(y +" " + z);
+
+        // precedence
+//        int a=10;
+//        a+=++a-5/3+6*a;
+//        System.out.print(a); // 86
+
+        // For Loop
+//        for(int i=386;i>0;i=i%3)
+//        {
+//            System.out.print("*");
+//        }   // infinite for loop
+
+//        for(int i=7;i!=0;i--)
+//        {
+//            System.out.print(i--);
+//        } // infinite loop
     }
 }
