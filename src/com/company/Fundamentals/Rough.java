@@ -1,5 +1,7 @@
 package com.company.Fundamentals;
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 
 public class Rough {
@@ -150,5 +152,24 @@ public class Rough {
 //        {
 //            System.out.print(i--);
 //        } // infinite loop
+
+
+//        System.out.println("2.5");
+
+//        int a = -98;
+//        int b = 2;
+//        System.out.println(a+b);
+//        System.out.println(a-b);
+//        System.out.println(a/b);
+//        System.out.println(a*b);
+
+        // Array
+//        int[] arr = new int[5];
+//        System.out.println(arr.length);
+//        arr = new int[6];
+//        System.out.println(arr.length);
+
+        String arr[] = new String[5];
+        System.out.println(arr[0]);
     }
 }
