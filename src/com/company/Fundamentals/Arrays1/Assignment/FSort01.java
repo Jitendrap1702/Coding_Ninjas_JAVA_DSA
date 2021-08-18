@@ -31,9 +31,11 @@ public class FSort01 {
                 end--;
             }
             else if (arr[start] == 1 && arr[end] == 0){
+                // swap 0 and 1
                 arr[start] = 0;
                 arr[end] = 1;
                 start++;
+                end--;
             }
             else if (arr[start] == 0){
                 start++;
