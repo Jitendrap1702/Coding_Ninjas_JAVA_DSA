@@ -42,7 +42,8 @@ import com.company.Fundamentals.Arrays1.ArraySum;
 
 public class FSumOfTwoArrays {
 
-    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+    // Method 1 :- wrong answer in test case 5
+    public static void sumOfTwoArrays1(int arr1[], int arr2[], int output[]) {
 
         int n = arr1.length-1;
         int m = arr2.length-1;
@@ -81,7 +82,43 @@ public class FSumOfTwoArrays {
         }
     }
 
-    public static void main(String[] args) {
+    public static void sumOfTwoArrays2(int arr1[], int arr2[], int output[]) {
+
+        int m = arr1.length-1;
+        int n = arr2.length-1;
+        int len = output.length-1;
+        int carry = 0;
+
+        while (m >= 0 && n >= 0){
+            int num = arr1[m] + arr2[n] + carry;
+            carry = num/10;
+            output[len] = num%10;
+            m--;
+            n--;
+            len--;
+        }
+
+        while (m >= 0){
+            int num = arr1[m] + carry;
+            carry = num/10;
+            output[len] = num%10;
+            m--;
+            len--;
+        }
+
+        while (n >= 0){
+            int num = arr2[n] + carry;
+            carry = num/10;
+            output[len] = num%10;
+            n--;
+            len--;
+        }
+
+        output[len] = carry;
+
+    }
+
+        public static void main(String[] args) {
 
         // take input
         int[] arr1 = ArraySum.takeInputArray();
@@ -89,7 +126,7 @@ public class FSumOfTwoArrays {
 
         // the length of output array will be one more than biggest array between arr1 and arr2
         int[] output = new int[1 + Math.max(arr1.length, arr2.length)];
-        sumOfTwoArrays(arr1, arr2, output);
+        sumOfTwoArrays2(arr1, arr2, output);
         ArraySum.printArray(output);
     }
 
