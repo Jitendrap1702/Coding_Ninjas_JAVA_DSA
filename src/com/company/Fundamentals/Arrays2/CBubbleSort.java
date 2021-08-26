@@ -4,7 +4,7 @@
 */
 
 /* Solution
-    compare jth and (j+1) element
+    compare jth and (j+1)th element
     if (j+1)th element < jth element  then swap them else continue
 
     After first iteration we will get maximum element at last position.
