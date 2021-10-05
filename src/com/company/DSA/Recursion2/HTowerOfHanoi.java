@@ -39,6 +39,8 @@
 
 package com.company.DSA.Recursion2;
 
+import java.util.Scanner;
+
 public class HTowerOfHanoi {
 
     public static void towerOfHanoi(int disks, char source, char auxiliary, char destination) {
@@ -61,5 +63,8 @@ public class HTowerOfHanoi {
 
     public static void main(String[] args) {
 
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        towerOfHanoi(n, 'a', 'b', 'c');
     }
 }

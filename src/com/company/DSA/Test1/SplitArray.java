@@ -37,7 +37,7 @@
 
  */
 
-package com.company.DSA.Test3;
+package com.company.DSA.Test1;
 
 import com.company.Fundamentals.Arrays1.ArraySum;
 

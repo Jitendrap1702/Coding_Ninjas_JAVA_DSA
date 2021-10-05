@@ -23,7 +23,7 @@
 
  */
 
-package com.company.DSA.Test3;
+package com.company.DSA.Test1;
 
 import java.util.Scanner;
 
