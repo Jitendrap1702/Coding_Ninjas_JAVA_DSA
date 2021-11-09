@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Main {
 
     public static void main(String[] args) {
@@ -9,5 +11,11 @@ public class Main {
         System.out.println(digit);
 
 
+        ArrayList<Integer> arr = new ArrayList<>();
+        ArrayList<Integer> arr2 = new ArrayList<>();
+        arr.add(0);
+        String s = "ab";
+
+        System.out.println(Math.abs(2-5));
     }
 }

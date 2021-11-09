@@ -1,4 +1,4 @@
-package com.company.Codechef;
+package com.company.Codechef.OctoberLongChallenge;
 
 import java.util.Scanner;
 
