@@ -24,7 +24,7 @@ public class EBinarySearch {
             int smallOutput = binarySearch(arr, x, midIndex + 1, lastIndex);
             return smallOutput;
         }
-        // else x is equal to medium element
+        // else x is equal to middle element
         else {
             return midIndex;
         }

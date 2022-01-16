@@ -13,6 +13,7 @@ public class Main {
         // Handle exception using try/catch
         try {
             int x = a / b;
+            System.out.println(x);
         }
         catch (ArithmeticException e){
             System.out.println("Error");
