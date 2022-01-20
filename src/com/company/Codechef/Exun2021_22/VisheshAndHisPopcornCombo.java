@@ -1,4 +1,4 @@
-package com.company.Codechef;
+package com.company.Codechef.Exun2021_22;
 
 import java.util.Scanner;
 
