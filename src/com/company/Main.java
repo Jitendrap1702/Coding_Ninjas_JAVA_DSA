@@ -32,6 +32,8 @@ public class Main {
 //        }
 //        System.out.println(count);
 
-        System.out.println(1&15&19&41);
+        //System.out.println(1&15&19&41);
+        String s = "abc";
+        System.out.println(s.substring(0,1));
     }
 }
