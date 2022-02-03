@@ -30,38 +30,61 @@ public class RatInAMaze {
 
     public static boolean ratInAMaze(int[][] maze){
 
-        return ratInAMaze(maze, 0, 0, maze.length);
+        int n = maze.length;
+        int[][] path = new int[n][n];
+        return ratInAMaze(maze, 0, 0, n, path);
     }
 
-    public static boolean ratInAMaze(int[][] maze, int x, int y, int n){
+    public static boolean ratInAMaze(int[][] maze, int x, int y, int n, int[][] path){
 
-        // Base case
+        // check if x, y is valid cell or not
+        if (x < 0 || x >= n || y < 0 || y >= n || maze[x][y] == 0 || path[x][y] == 1){ // path[x][y] = 1 means cell is visited, we are trying to visit again
+            return false;
+        }
+        // include the cell in current path
+        path[x][y] = 1;
+        // Destination cell
         if (x == n-1 && y == n-1){
+            for (int row = 0; row < n; row++){
+                for (int col = 0; col < n; col++){
+                    System.out.print(path[row][col] + " ");
+                }
+                System.out.println();
+            }
             return true;
         }
-        if (isValidPlace(maze, x, y, n)){
-            if (ratInAMaze(maze, x+1, y, n)){
-                return true;
-            }
-            if (ratInAMaze(maze, x, y+1, n)){
-                return true;
-            }
-            return false;
+
+        // Explore further in all directions
+        // top
+        if (ratInAMaze(maze, x-1, y, n, path)){
+            return true;
+        }
+        // right
+        if (ratInAMaze(maze, x, y+1, n, path)){
+            return true;
+        }
+        // down
+        if (ratInAMaze(maze, x+1, y, n, path)){
+            return true;
+        }
+        // left
+        if (ratInAMaze(maze, x, y-1, n, path)){
+            return true;
         }
         return false;
     }
 
-    public static boolean isValidPlace(int[][] maze, int x, int y, int n){
-        if (x >= 0 && x < n && y >= 0 && y < n && maze[x][y] == 1){
-            return true;
-        }else {
-            return false;
-        }
-    }
+//    public static boolean isValidPlace(int[][] maze, int x, int y, int n){
+//        if (x >= 0 && x < n && y >= 0 && y < n && maze[x][y] == 1){
+//            return true;
+//        }else {
+//            return false;
+//        }
+//    }
 
     public static void main(String[] args) {
 
-        int[][] maze = {{1, 0, 1}, {1, 0, 1}, {1, 1, 1}};
+        int[][] maze = {{1, 1, 0}, {1, 1, 0}, {1, 1, 1}};
         boolean ans = ratInAMaze(maze);
         System.out.println(ans);
     }
