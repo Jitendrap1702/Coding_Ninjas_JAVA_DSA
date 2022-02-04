@@ -11,7 +11,8 @@ public class YetAnotherConstructiveProblem {
             int t = sc.nextInt();
             for (int i = 0; i < t; i++) {
                 int x = sc.nextInt();
-                getABC(x);
+                //getABC(x);
+                solveTestCase(x);
             }
         }catch (Exception e){}
     }
@@ -27,5 +28,13 @@ public class YetAnotherConstructiveProblem {
                 }
             }
         }
+    }
+
+    public static void solveTestCase(int x){
+
+        int a = x;
+        int b = x | (1 << 27);
+        int c = x | (1 << 28);
+        System.out.println(a + " " + b + " " + c);;
     }
 }
