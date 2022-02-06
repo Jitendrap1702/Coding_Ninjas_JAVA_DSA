@@ -92,7 +92,7 @@ public class MinStepsToOne {
             return 0;
         }
 
-        int ans1 = Integer.MAX_VALUE, ans2 = Integer.MAX_VALUE, ans3 = Integer.MAX_VALUE;
+        int ans1 = Integer.MAX_VALUE, ans2 = Integer.MAX_VALUE, ans3;
         // 1. divide by 3, if divisible
         if (n % 3 == 0){
             if (storage[n/3] == -1){
