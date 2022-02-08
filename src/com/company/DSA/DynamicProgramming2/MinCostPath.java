@@ -25,8 +25,8 @@ public class MinCostPath {
     public static int minCostPathRecursiveDP(int[][] input, int row, int col, int m, int n) {
 
         int[][] memo = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
+        for (int i = 0; i < m ; i++){
+            for (int j = 0; j < n; j++){
                 memo[i][j] = -1;
             }
         }
@@ -37,40 +37,92 @@ public class MinCostPath {
     public static int minCostPathRecursiveDPHelper(int[][] input, int row, int col, int m, int n, int[][] memo) {
 
         // Base case
-        if (row >= m || col >= n) {
-            return Integer.MAX_VALUE;
-        }
-        // special case
-        if (row == m - 1 && col == n - 1) {
+        if (row == m-1 && col == n-1){
             return input[row][col];
         }
 
-        int horizontalStep;
-        if (memo[row][col + 1] == -1) {
-            horizontalStep = minCostPathRecursiveDPHelper(input, row, col + 1, m, n, memo);
-            memo[row][col + 1] = horizontalStep;
-        } else {
-            horizontalStep = memo[row][col + 1];
+        int horizontalStep = Integer.MAX_VALUE;
+        if (row < m && col+1 < n) {
+            if (memo[row][col+1] == -1) {
+                horizontalStep = minCostPathRecursiveDPHelper(input, row, col + 1, m, n, memo);
+                memo[row][col+1] = horizontalStep;
+            }else{
+                horizontalStep = memo[row][col+1];
+            }
         }
 
-        int verticalStep;
-        if (memo[row + 1][col] == -1) {
-            verticalStep = minCostPathRecursiveDPHelper(input, row + 1, col, m, n, memo);
-            memo[row + 1][col] = verticalStep;
-        } else {
-            verticalStep = memo[row + 1][col];
+        int verticalStep = Integer.MAX_VALUE;
+        if (row+1 < m && col < n) {
+            if (memo[row+1][col] == -1) {
+                verticalStep = minCostPathRecursiveDPHelper(input, row + 1, col, m, n, memo);
+                memo[row+1][col] = verticalStep;
+            }else {
+                verticalStep = memo[row+1][col];
+            }
         }
 
-        int diagonalStep;
-        if (memo[row + 1][col + 1] == -1) {
-            diagonalStep = minCostPathRecursiveDPHelper(input, row + 1, col + 1, m, n, memo);
-            memo[row + 1][col + 1] = diagonalStep;
-        } else {
-            diagonalStep = memo[row + 1][col + 1];
+        int diagonalStep = Integer.MAX_VALUE;
+        if (row+1 < m && col+1 < n) {
+            if (memo[row+1][col+1] == -1) {
+                diagonalStep = minCostPathRecursiveDPHelper(input, row + 1, col + 1, m, n, memo);
+                memo[row+1][col+1] = diagonalStep;
+            }else {
+                diagonalStep = memo[row+1][col+1];
+            }
         }
 
         return input[row][col] + Math.min(horizontalStep, Math.min(verticalStep, diagonalStep));
     }
+//    public static int minCostPathRecursiveDP(int[][] input, int row, int col, int m, int n) {
+//
+//        int[][] memo = new int[m+1][n+1];
+//        for (int i = 0; i < m; i++) {
+//            for (int j = 0; j < n; j++) {
+//                memo[i][j] = Integer.MIN_VALUE;
+//            }
+//        }
+//
+//        return minCostPathRecursiveDPHelper(input, row, col, m, n, memo);
+//    }
+//
+//    public static int minCostPathRecursiveDPHelper(int[][] input, int row, int col, int m, int n, int[][] memo) {
+//
+//        // Base case
+//        if (row >= m && col >= n){
+//            return Integer.MAX_VALUE;
+//        }
+//
+//        // special case
+//        if (row == m-1 && col == n-1){
+//            return input[row][col];
+//        }
+//
+//        int horizontalStep = Integer.MAX_VALUE;
+//            if (memo[row][col+1] == Integer.MIN_VALUE) {
+//                horizontalStep = minCostPathRecursiveDPHelper(input, row, col + 1, m, n, memo);
+//                memo[row][col+1] = horizontalStep;
+//            }else{
+//                horizontalStep = memo[row][col+1];
+//            }
+//
+//        int verticalStep = Integer.MAX_VALUE;
+//            if (memo[row+1][col] == Integer.MIN_VALUE) {
+//                verticalStep = minCostPathRecursiveDPHelper(input, row + 1, col, m, n, memo);
+//                memo[row+1][col] = verticalStep;
+//            }else {
+//                verticalStep = memo[row+1][col];
+//            }
+//
+//        int diagonalStep = Integer.MAX_VALUE;
+//            if (memo[row+1][col+1] == Integer.MIN_VALUE) {
+//                diagonalStep = minCostPathRecursiveDPHelper(input, row + 1, col + 1, m, n, memo);
+//                memo[row+1][col+1] = diagonalStep;
+//            }else {
+//                diagonalStep = memo[row+1][col+1];
+//            }
+//
+//        return input[row][col] + Math.min(horizontalStep, Math.min(verticalStep, diagonalStep));
+//    }
 
     // 3. Iterative using memoization
     public static int minCostPathIterativeDP(int[][] input, int m, int n) {
@@ -125,13 +177,13 @@ public class MinCostPath {
                 {1, 6, 0, 5, 10, -4},
                 {9, 6, 2, -10, 7, 4},
                 {10, -2, 0, 5, 5, 7}};
-        int ans = minCostPath(input, 0, 0, m, n);
+        int ans2 = minCostPath(input, 0, 0, m, n);
+        System.out.println(ans2);
+
+        int ans = minCostPathRecursiveDP(input, 0, 0, m, n);
         System.out.println(ans);
 
-//        int ans = minCostPathRecursiveDP(input, 0, 0, m, n);
-//        System.out.println(ans);
-
-//        int ans = minCostPathIterativeDP(input, m, n);
-//        System.out.println(ans);
+        int ans1 = minCostPathIterativeDP(input, m, n);
+        System.out.println(ans1);
     }
 }
