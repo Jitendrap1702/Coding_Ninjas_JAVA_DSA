@@ -25,7 +25,7 @@ we will solve this problem in 3 ways
 2. Recursive using Dynamic Programming
 3. Iterative using Dynamic programming
  */
-package com.company.DynamicProgramming1;
+package com.company.DSA.DynamicProgramming1;
 
 public class StairCase {
 

@@ -1,4 +1,4 @@
-package com.company.DynamicProgramming1;
+package com.company.DSA.DynamicProgramming1;
 
 public class FibonacciIterativeDP {
 

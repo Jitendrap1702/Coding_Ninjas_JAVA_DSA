@@ -30,7 +30,7 @@ If you try changing the coin 2 into 3 smaller coins, you will get 1, 0 and 0,
 and later you can get no more than $1 out of them.
 It is better just to change the 2 coin directly into $2.
  */
-package com.company.DynamicProgramming1.Assignment;
+package com.company.DSA.DynamicProgramming1.Assignment;
 
 import java.util.HashMap;
 
