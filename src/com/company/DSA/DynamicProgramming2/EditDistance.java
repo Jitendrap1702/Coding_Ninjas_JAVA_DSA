@@ -41,7 +41,6 @@ Sample Output 2 :
 /*
 Given string s (len = m) and t (len = n)
 we will find out the longest common subsequence of s and t
-and ans will be :- Math.max(m, n) - lcs(s, t)
  */
 package com.company.DSA.DynamicProgramming2;
 
