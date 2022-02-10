@@ -141,26 +141,42 @@ public class EditDistance {
     }
 
     // 3. Iterative Memoization : Top Down Approach
-//    public static int editDistanceIterative(String s, String t, int i, int j){
-//
-//        int m = s.length(), n = t.length();
-//        int[][] storage = new int[m+1][n+1];
-//        for (int x = 0; x <= m; x++){
-//            for (int y = 0; y <= n; y++){
-//                storage[x][y] = Integer.MIN_VALUE;
-//            }
-//        }
-//
-//    }
+    public static int editDistanceIterative(String s, String t, int i, int j){
+
+        int m = s.length(), n = t.length();
+        int[][] storage = new int[m+1][n+1];
+        for (int x = 0; x <= m; x++){
+            storage[x][0] = x; // first column
+        }
+        for (int x = 0; x <= n; x++){
+            storage[0][x] = x; // first row
+        }
+
+        for (int x = 1; x <= m; x++){
+            for (int y = 1; y <= n; y++){
+
+                if (s.charAt(x-1) == t.charAt(y-1)){
+                    storage[x][y] = storage[x-1][y-1];
+                }else {
+                    storage[x][y] = 1 + Math.min(storage[x-1][y-1], Math.min(storage[x-1][y], storage[x][y-1]));
+                }
+            }
+        }
+        return storage[m][n];
+    }
 
     public static void main(String[] args) {
 
         String s = "whgtdwhgtdg", t = "aswcfg";
+//        String s = "wh", t = "a";
 //        String s = "abc", t = "dc";
 //        int ans = editDistance(s, t, 0, 0);
 //        System.out.println(ans);
 
-        int ans = editDistanceRecursiveDP(s, t, 0, 0);
+//        int ans = editDistanceRecursiveDP(s, t, 0, 0);
+//        System.out.println(ans);
+
+        int ans = editDistanceIterative(s, t, 0, 0);
         System.out.println(ans);
     }
 }
