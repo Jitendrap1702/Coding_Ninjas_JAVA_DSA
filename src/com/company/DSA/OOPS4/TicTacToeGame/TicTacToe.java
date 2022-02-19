@@ -1,5 +1,7 @@
 package com.company.DSA.OOPS4.TicTacToeGame;
 
+import java.util.Scanner;
+
 public class TicTacToe {
 
     private Player player1, player2;
@@ -12,68 +14,77 @@ public class TicTacToe {
     }
 
     public void startGame(){
+        Scanner sc = new Scanner(System.in);
         // take player input
-        player1 = new Player("Gautam", 'x');
-        player2 = new Player("Yuvraj", '0');
+        player1 = takePlayerInput(1);
+        player2 = takePlayerInput(2);
+        while (player1.getSymbol() == player2.getSymbol()){
+            System.out.println("symbol already taken!! please enter symbol again.");
+            player2.setSymbol(sc.next().charAt(0));
+        }
         // create board
         board = new Board(player1.getSymbol(), player2.getSymbol());
+
         // play game
+        boolean player1Turn = true;
+        int status = Board.INCOMPLETE;
+        while (status == Board.INCOMPLETE || status == Board.INVALIDMOVE){
 
-//        while (checkWinner(board) == ' '){
-//
-//        }
+            if (player1Turn){
+                System.out.println("Player1 --> " + player1.getName() + "'s turn");
+                System.out.println("Enter x: ");
+                int x = sc.nextInt();
+                System.out.println("Enter y: ");
+                int y = sc.nextInt();
 
+                /* 1. player1 win
+                    2. player2 win
+                    3. Draw
+                    4. Incomplete
+                    5. Invalid
+                 */
+                status = board.move(player1.getSymbol(), x, y);
+                if (status == Board.INVALIDMOVE){
+                    System.out.println("Invalid Move!! please enter coordinate again");
+                }else {
+                    player1Turn = false;
+                    board.print();
+                }
+
+            }else {
+                System.out.println("Player2 --> " + player2.getName() + "'s turn");
+                System.out.println("Enter x: ");
+                int x = sc.nextInt();
+                System.out.println("Enter y: ");
+                int y = sc.nextInt();
+
+                status = board.move(player2.getSymbol(), x, y);
+                if (status == Board.INVALIDMOVE){
+                    System.out.println("Invalid Move!! please enter coordinate again");
+                }else {
+                    player1Turn = true;
+                    board.print();
+                }
+            }
+        }
+
+        if (status == Board.PLAYER1WINS){
+            System.out.println("Player1 --> " + player1.getName() + " wins!!");
+        }else if (status == Board.PLAYER2WINS){
+            System.out.println("Player2 --> " + player2.getName() + " wins!!");
+        }else {
+            System.out.println("Draw!!");
+        }
     }
 
-    public static char checkWinner(int[][] board){
+    public Player takePlayerInput(int num){
 
-        // check in rows
-        StringBuilder row = new StringBuilder();
-        for (int i = 0; i < board.length; i++){
-            for (int j = 0; j < board.length; j++){
-                row.append(board[i][j]);
-            }
-
-            if (row.equals("xxx")){
-                return 'x';
-            }
-            if (row.equals("000")){
-                return '0';
-            }
-        }
-
-        // check in columns
-        StringBuilder column = new StringBuilder();
-        for (int i = 0; i < board.length; i++){
-            for (int j = 0; j < board.length; j++){
-                column.append(board[j][i]);
-            }
-
-            if (column.equals("xxx")){
-                return 'x';
-            }
-            if (column.equals("000")){
-                return '0';
-            }
-        }
-
-        // check in diagonal
-        String d1 = String.valueOf(board[0][0] + board[1][1] + board[2][2]);
-        if (d1.equals("xxx")){
-            return 'x';
-        }
-        if (d1.equals("000")){
-            return '0';
-        }
-
-        String d2 = String.valueOf(board[0][2] + board[1][1] + board[2][0]);
-        if (d2.equals("xxx")){
-            return 'x';
-        }
-        if (d2.equals("000")){
-            return '0';
-        }
-
-        return ' ';
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter Player" + num + " name : ");
+        String name = sc.nextLine();
+        System.out.println("Enter Player" + num + " symbol : ");
+        char symbol = sc.next().charAt(0);
+        Player p = new Player(name, symbol);
+        return p;
     }
 }
