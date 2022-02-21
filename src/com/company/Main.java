@@ -33,15 +33,15 @@ public class Main {
 //        System.out.println(count);
 
         //System.out.println(1&15&19&41);
-        String s = "abc";
-        System.out.println(s.substring(0,1));
-
-        int a = 7, b = 4, c = 10;
-        a = (7^4) + 4;
-        if (2<b){
-            b = (c+1)+a;
-        }
-        System.out.println(a+b+c);
+//        String s = "abc";
+//        System.out.println(s.substring(0,1));
+//
+//        int a = 7, b = 4, c = 10;
+//        a = (7^4) + 4;
+//        if (2<b){
+//            b = (c+1)+a;
+//        }
+//        System.out.println(a+b+c);
         }
 
 }
