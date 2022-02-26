@@ -22,7 +22,7 @@ public class DepthFirstTraversal {
         System.out.print(currentVertex + " ");
         for (int i = 0; i < adjMatrix.length; i++){ // run loop for non traversed vertex only
             // call for all adjacent vertex of current vertex
-            if (adjMatrix[currentVertex][i] == 1 && visited[i] == false){
+            if (adjMatrix[currentVertex][i] == 1 && !visited[i]){
                 dFTraversal2(adjMatrix, i, visited);
             }
         }
