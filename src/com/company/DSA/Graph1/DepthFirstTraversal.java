@@ -31,8 +31,12 @@ public class DepthFirstTraversal {
     public static void dFTraversal(int[][] adjMatrix){
 
         boolean[] visited = new boolean[adjMatrix.length];
-        // take 0 as current vertex
-        dFTraversal2(adjMatrix, 0, visited);
+        // for disconnected graph also
+        for (int i = 0; i < adjMatrix.length; i++){
+            if (!visited[i]){ // if not visited then call bfs for that
+                dFTraversal2(adjMatrix, i, visited);
+            }
+        }
     }
 
     public static void main(String[] args) {

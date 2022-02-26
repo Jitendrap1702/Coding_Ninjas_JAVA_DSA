@@ -61,10 +61,7 @@ public class BreadthFirstTraversal {
         // create array
         boolean[] visited = new boolean[adjMatrix.length];
 
-        // call bfs for source vertex 0
-        bFTraversalHelper(adjMatrix, visited, 0);
-
-        // if disconnected graph
+        // for disconnected graph also
         for (int i = 0; i < adjMatrix.length; i++){
             if (!visited[i]){ // if not visited then call bfs for that
                 bFTraversalHelper(adjMatrix, visited, i);
