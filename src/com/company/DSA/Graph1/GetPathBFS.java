@@ -67,6 +67,9 @@ public class GetPathBFS {
                     pendingVertices.add(i);
                     visited[i] = true;
                     map.put(i, currentVertices);
+                    if (i == e){
+                        break;
+                    }
                 }
             }
         }
@@ -75,7 +78,7 @@ public class GetPathBFS {
             return null;
         }else {
             output.add(e); // add destination vertex in array
-            int x = e;
+            int x = e; // current vertex
             while (x != s){
                 output.add(map.get(x)); // add parent of x in output array
                 x = map.get(x);
