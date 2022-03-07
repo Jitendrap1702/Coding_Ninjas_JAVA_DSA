@@ -2,7 +2,7 @@ package com.company.DSA.Stack;
 
 import com.company.DSA.LinkedList1.APrintLL.Node;
 
-public class StackUsingLL<T> {
+public class  StackUsingLL<T> {
 
     private Node<T> head;
     private int count;

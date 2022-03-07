@@ -36,9 +36,31 @@ public class NodesWithoutSibling {
         printNodesWithoutSibling(root.right);
     }
 
+    public static int countNodesWithoutSibling(BinaryTreeNode<Integer> root) {
+
+        if (root == null){
+            return 0;
+        }
+
+        int leftCount = countNodesWithoutSibling(root.left);
+        int rightCount = countNodesWithoutSibling(root.right);
+        if (root.left != null && root.right == null){
+            return 1 + leftCount;
+        }
+
+        if (root.right != null && root.left == null){
+            return 1 + rightCount;
+        }
+
+        return leftCount + rightCount;
+    }
+
     public static void main(String[] args) {
 
         BinaryTreeNode<Integer> root = InputBT.takeTreeInputBetter(true, 0, true);
         printNodesWithoutSibling(root);
+        System.out.println();
+        int ans = countNodesWithoutSibling(root);
+        System.out.println(ans);
     }
 }

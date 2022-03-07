@@ -1,5 +1,6 @@
 package com.company.DSA.Graph1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class DepthFirstTraversal {
@@ -35,6 +36,7 @@ public class DepthFirstTraversal {
         for (int i = 0; i < adjMatrix.length; i++){
             if (!visited[i]){ // if not visited then call bfs for that
                 dFTraversal2(adjMatrix, i, visited);
+                System.out.println();
             }
         }
     }

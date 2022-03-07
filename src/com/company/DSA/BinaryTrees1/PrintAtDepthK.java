@@ -15,6 +15,7 @@ public class PrintAtDepthK {
 
         if (k == 0){
             System.out.println(root.data);
+            return;
         }
 
         printAtDepthK(root.left, k-1);

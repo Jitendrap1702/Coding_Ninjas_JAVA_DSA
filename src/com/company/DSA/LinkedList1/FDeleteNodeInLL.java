@@ -17,6 +17,7 @@ package com.company.DSA.LinkedList1;
 
 import com.company.DSA.LinkedList1.APrintLL.Node;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 
 public class FDeleteNodeInLL {
@@ -64,13 +65,31 @@ public class FDeleteNodeInLL {
         return head;
     }
 
+    public static Node<Integer> deleteNode2(Node<Integer> head, int pos){
+
+        if (pos == 0){
+            return head.next;
+        }
+
+        Node<Integer> prev = head;
+        while (pos > 1 && prev != null){ // reach at pos-1
+            prev = prev.next;
+            pos--;
+        }
+        // delete node at pos
+        if (prev != null && prev.next != null){
+            prev.next = prev.next.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int pos = sc.nextInt();
 
         Node<Integer> head = DTakeInputLL.takeInput2();
-        Node<Integer> ans = deleteNode(head, pos);
+        int pos = sc.nextInt();
+        Node<Integer> ans = deleteNode2(head, pos);
         DTakeInputLL.print(ans);
 
     }

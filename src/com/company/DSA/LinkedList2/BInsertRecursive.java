@@ -11,7 +11,7 @@ public class BInsertRecursive {
 
         // Base case
         if (head == null && pos > 0){
-            return head;
+            return null;
         }
         if (pos == 0){
             nodeToBeInserted.next = head;

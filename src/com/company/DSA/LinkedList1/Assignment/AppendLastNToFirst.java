@@ -40,6 +40,7 @@ public class AppendLastNToFirst {
         return length;
     }
 
+
     public static Node<Integer> appendLastNToFirst(Node<Integer> head, int n) {
 
         if (head == null){

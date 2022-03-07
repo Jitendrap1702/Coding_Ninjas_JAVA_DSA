@@ -57,7 +57,7 @@ public class LongestConsecutiveSequence {
             if (map.get(i)){
 
                 int forward = startI+1;
-                int backward = startI-1;
+//                int backward = startI-1;
                 // check consecutive elements of i, which is greater than i
                 while (map.containsKey(forward)){
                     maxLengthI++;

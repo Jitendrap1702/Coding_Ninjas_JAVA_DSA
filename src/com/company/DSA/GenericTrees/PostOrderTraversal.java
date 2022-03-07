@@ -34,6 +34,9 @@ public class PostOrderTraversal {
         }
 
         // first print children
+//        for (int i = 0; i < root.children.size(); i++){
+//            printPostOrder(root.children.get(i));
+//        }
         for (TreeNode<Integer> i : root.children){
             TreeNode<Integer> child = i;
             printPostOrder(child);

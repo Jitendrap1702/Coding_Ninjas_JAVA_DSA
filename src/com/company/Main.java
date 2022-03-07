@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Main {
 
@@ -42,6 +43,25 @@ public class Main {
 //            b = (c+1)+a;
 //        }
 //        System.out.println(a+b+c);
+//        Scanner s=new Scanner(System.in);
+//        String str1=s.next();
+//        String str2=s.nextLine();
+//        String str3=str2+str1;
+//        System.out.println(str3);
+//        System.out.println((3 + 4 + 6)/3);
+//        int i = 'c';
+//        System.out.println(i);
+//
+//        ArrayList<Integer> x = new ArrayList<>();
+
+        //System.out.println(22|7);
+        System.out.println(7|18);
+        Scanner sc = new Scanner(System.in);
+        String s = sc.next();
+        System.out.println(s.charAt(0));
+
         }
+
+
 
 }
